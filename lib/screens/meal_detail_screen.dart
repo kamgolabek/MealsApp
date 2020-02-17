@@ -43,7 +43,7 @@ class MealDetailScreen extends StatelessWidget {
               width: double.infinity,
               child: Image.network(
                 selectedMeal.imageUrl,
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.cover,
               ),
             ),
             buildSectionTitle(context, 'Ingredients'),
