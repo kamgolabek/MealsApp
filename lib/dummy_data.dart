@@ -129,7 +129,7 @@ const DUMMY_MEALS = const [
     affordability: Affordability.Pricey,
     complexity: Complexity.Simple,
     imageUrl:
-        'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
+        'https://wallpaperplay.com/walls/full/e/8/6/84382.jpg',
     duration: 45,
     ingredients: [
       '300g Cattle Hack',
