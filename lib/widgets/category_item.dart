@@ -1,3 +1,4 @@
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import '../screens/category_meals_screen.dart';
 
@@ -26,9 +27,24 @@ class CategoryItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       child: Container(
         padding: const EdgeInsets.all(15),
-        child: Text(
-          title,
-          style: Theme.of(context).textTheme.headline1,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              title,
+              style: Theme.of(context).textTheme.headline1,
+            ),
+            SizedBox(
+              width: 100,
+              height: 43,
+              child: FlareActor(
+                "assets/flare/food.flr",
+                alignment: Alignment.center,
+                fit: BoxFit.scaleDown,
+                animation: 'go',
+              ),
+            )
+          ],
         ),
         decoration: BoxDecoration(
           gradient: LinearGradient(
