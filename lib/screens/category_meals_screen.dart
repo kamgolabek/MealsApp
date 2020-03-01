@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
 import '../widgets/meal_item.dart';
-import '../dummy_data.dart';
 
 class CategoryMealsScreen extends StatefulWidget {
   static const routeName = '/category-meals';
+
+  final List<Meal> availableMeals;
+
+  CategoryMealsScreen(this.availableMeals);
 
   @override
   _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
@@ -30,7 +33,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
       categoryTitle = routeArgs['title'];
       final categoryId = routeArgs['id'];
       displayedMeals =
-          DUMMY_MEALS.where((m) => m.categories.contains(categoryId)).toList();
+          widget.availableMeals.where((m) => m.categories.contains(categoryId)).toList();
       _loadedInitData = true;
     }
 
@@ -59,20 +62,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
             imageUrl: displayedMeals[idx].imageUrl,
             affordability: displayedMeals[idx].affordability,
             complexity: displayedMeals[idx].complexity,
-            removeItemHandler: removeMealItem,
           );
-
-          // return Card(
-          //   margin: EdgeInsets.all(22),
-          //   elevation: 5,
-          //   child: Column(
-          //     children: <Widget>[
-          //       Image.network(categoryMeals[idx].imageUrl),
-          //       Text(categoryMeals[idx].title),
-          //       ...categoryMeals[idx].ingredients.map((e) => Text(e)).toList(),
-          //     ],
-          //   ),
-          // );
         },
         itemCount: displayedMeals.length,
       ),
